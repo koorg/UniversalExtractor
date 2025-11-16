@@ -12,7 +12,7 @@ Universal Extractor is a Windows desktop application (WPF, .NET 8) that lets you
 - Regex-driven extraction, with the resulting matches sorted and deduplicated before being written to disk.
 - Single-file release build for quick distribution and portable usage.
 
-<img width="884" height="481" alt="Universal Extractor 16_11_2025 16_12_44" src="https://github.com/user-attachments/assets/57a2a374-5ae9-497b-b660-f6a29366785e" />
+<img width="891" height="517" alt="Capture d&#39;écran 2025-11-16 161509" src="https://github.com/user-attachments/assets/726a4c57-b78d-488f-9681-545392369a4e" />
 
 ## Development Setup
 
