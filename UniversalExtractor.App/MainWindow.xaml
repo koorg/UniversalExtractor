@@ -1,0 +1,89 @@
+<!--
+  Copyright (c) 2024.
+  This file is part of UniversalExtractor and is licensed under the GNU General Public License v3.0.
+  See the LICENSE file distributed with this work for additional information.
+-->
+<Window x:Class="UniversalExtractor.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Universal Extractor"
+        Width="1000"
+        Height="600"
+        MinWidth="900"
+        MinHeight="520"
+        Background="#111318">
+    <Grid Margin="16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" MinWidth="420" />
+            <ColumnDefinition Width="*" MinWidth="360" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0"
+                AllowDrop="True"
+                Drop="DropZone_Drop"
+                DragEnter="DropZone_DragEnter"
+                DragOver="DropZone_DragOver"
+                Background="#1E1F29"
+                BorderBrush="#2E9CCA"
+                BorderThickness="2"
+                CornerRadius="12"
+                Padding="24"
+                Margin="0,0,16,0">
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        TextElement.Foreground="White"
+                        TextElement.FontSize="16"
+                        TextElement.FontWeight="Medium">
+                <Image Source="{Binding SelectedFileIcon}"
+                       Width="72"
+                       Height="72"
+                       Margin="0,0,0,12" />
+                <TextBlock Text="{Binding DropMessage}" TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,8" />
+                <TextBlock FontSize="13"
+                           Foreground="#A0A5B8"
+                           Text="Accepted formats: PDF, Word (OpenXML), Text, CSV, ODT, RTF, HTML, Markdown." />
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Border Background="#1E1F29"
+                    BorderBrush="#2E9CCA"
+                    BorderThickness="2"
+                    CornerRadius="12"
+                    Padding="20"
+                    Margin="0,0,0,16">
+                <StackPanel>
+                    <TextBlock Text="Choose the information to extract"
+                               FontSize="18"
+                               FontWeight="Medium"
+                               Foreground="White"
+                               Margin="0,0,0,12" />
+                    <ComboBox ItemsSource="{Binding ExtractionOptions}"
+                              SelectedItem="{Binding SelectedExtraction}"
+                              DisplayMemberPath="Name"
+                              FontSize="14"
+                              Style="{StaticResource DarkComboBoxStyle}" />
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="1"
+                    Background="#1E1F29"
+                    BorderBrush="#2E9CCA"
+                    BorderThickness="2"
+                    CornerRadius="12"
+                    Padding="20">
+                <Button Content="Extract"
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        Click="ExtractButton_Click" />
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
